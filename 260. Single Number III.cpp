@@ -19,5 +19,6 @@ public:
         for (int num : nums)
             rets[!(num & diff)] ^= num;
         return rets;
+        // diff = a^b；diff&(-diff) = diff & ~(diff-1)=> get the rightest 1 of diff; a and b are different in the bit.
     }
 };

@@ -12,8 +12,8 @@ public:
         return vec;*/
         int diff = accumulate(nums.begin(), nums.end(), 0, bit_xor<int>());
         /*int diff = 0;
-        for(int i=0;i<nums.size();i++)
-            diff^=nums[i];*/
+        for(int num : nums)
+            diff^=num;*/
         diff &= -diff;
         vector<int> rets(2, 0);
         for (int num : nums)

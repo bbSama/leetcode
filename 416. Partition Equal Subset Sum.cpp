@@ -7,15 +7,16 @@ public:
         if(sum%2)
             return false;
         sum/=2;
-        int dp[5000];
-        memset(dp,0,sizeof(int)*5000);
-        for(int j=0;j<nums.size();j++)
-            dp[nums[j]] = 1;
-        for(int i=nums[0];i<=sum;i++)
+        bool *dp = new bool[sum+1];
+        memset(dp,0,sizeof(bool)*(sum+1));
+        dp[0] = 1;
+        for(int i=1;i<=sum;i++)
         {
             for(int j=1;j<nums.size();j++)
             {
                 dp[i] |= dp[i-nums[j]];
+                if(dp[i])
+                    break;
             }
         }
         return dp[sum];

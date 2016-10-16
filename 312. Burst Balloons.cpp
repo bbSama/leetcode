@@ -7,11 +7,11 @@ public:
         int dp[n+2][n+2] = {};
         //memset(dp,0,sizeof(int)*(n+2)*(n+2));
         for(int len=2;len<n+2;len++)
-            for(int start=0;start<n+2-len;start++)
+            for(int left=0;left<n+2-len;left++)
             {
-                int end = start+len;
-                for(int i=start+1;i<end;i++)
-                    dp[start][end] = max(dp[start][end],dp[start][i]+nums[start]*nums[i]*nums[end]+dp[i][end]);
+                int right = left+len;
+                for(int i=left+1;i<right;i++)
+                    dp[left][right] = max(dp[left][right],dp[left][i]+nums[left]*nums[i]*nums[right]+dp[i][right]);
             }
         return dp[0][n+1];
     }

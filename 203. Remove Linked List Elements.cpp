@@ -21,5 +21,10 @@ public:
                 t1 = t1->next;
         }
         return dummy.next;
+        /** recursive version
+        if(head==NULL) return NULL;
+        head->next = removeElements(head->next,val);
+        return head->val==val ? head->next : head;
+        */
     }
 };
